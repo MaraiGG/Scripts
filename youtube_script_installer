@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+
+echo "Starting the Youtube Script Installer."
+
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl && echo "Installed youtube-dl"
+sudo chmod a+rx /usr/local/bin/youtube-dl && echo "Permissions changed for file"
+
+sudo apt-get install ffmpeg && echo "Installed ffmpeg"

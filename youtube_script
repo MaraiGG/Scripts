@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+
+clear
+
+count=0
+
+echo "Please enter the Youtube playlist link."
+read link
+
+while(true);do
+
+echo	
+echo "Running"
+
+
+mkdir -p ./logs
+mkdir -p ./songs
+
+
+youtube-dl -x  --audio-format "mp3" --download-archive ./logs/archive_of_whats_been_downloaded -o "./songs/%(title)s.%(ext)s" $link && echo "Completed Successfully!"
+
+echo
+cp  ./logs/archive_of_whats_been_downloaded ./logs/backup_archive && echo "Backup of archive completed"
+
+count=$((count + 1))
+
+echo
+echo
+echo "Script looped $count times."
+echo
+echo "Will check for new songs in playlist after a few moments."
+echo "---------------------------------------------------------"
+echo
+
+
+sleep $[30]
+
+done
